@@ -47,3 +47,13 @@ Route::group([
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
 });
+
+
+Route::group([
+    'middleware' => 'api',
+], function ($router) {
+    Route::get('books/user', function () {
+        $user = auth()->user();
+        return \App\Book::where('user_id', $user->id)->get();
+    });
+});
