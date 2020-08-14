@@ -9,6 +9,6 @@ docker-compose run --rm composer install
 ```
 
 Postman collection to test an api could be found
-[here](https://www.getpostman.com/collections/85b9e09332838ebc9224).
+[here](https://documenter.getpostman.com/view/782282/T1LPCmqr?version=latest).
 
 Note: `env` file has been added for the sake of simplicity.
