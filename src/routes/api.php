@@ -52,8 +52,11 @@ Route::group([
 Route::group([
     'middleware' => 'api',
 ], function ($router) {
-    Route::get('books/user', function () {
-        $user = auth()->user();
-        return \App\Book::where('user_id', $user->id)->get();
-    });
+    Route::get('books/user', 'BooksController@getBooksForUser');
+
+    Route::post('books', 'BooksController@createBook');
+
+    Route::put('books/{id}', 'BooksController@updateBook');
+
+    Route::delete('books/{id}', 'BooksController@deleteBook');
 });
