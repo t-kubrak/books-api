@@ -17,3 +17,21 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('books', function () {
+    return \App\Book::all();
+});
+
+Route::get('authors', function () {
+    return \App\Author::all();
+});
+
+Route::get('authors/{id}/books', function ($id) {
+    $author = \App\Author::find($id);
+
+    if (!$author) {
+        return [];
+    }
+
+    return $author->books;
+});
