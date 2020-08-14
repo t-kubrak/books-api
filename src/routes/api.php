@@ -35,3 +35,6 @@ Route::get('authors/{id}/books', function ($id) {
 
     return $author->books;
 });
+
+Route::post('register', 'RegisterController@register');
+
